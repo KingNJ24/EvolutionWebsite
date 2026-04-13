@@ -7,8 +7,9 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Evolution Combat Studio - Train MMA in Noida',
-  description: 'Learn MMA, Boxing, Kickboxing, BJJ, and Muay Thai at Evolution Combat Studio in Noida. Professional coaching, beginner-friendly classes, and real fight training.',
+  title: 'Evolution Combat Studio | Best MMA Training in Noida',
+  description:
+    'Best MMA training in Noida — Boxing, Kickboxing, BJJ, Muay Thai & self defense training in Noida. Book a free trial at Evolution Combat Studio, Sector 50. Certified coaches, beginner friendly.',
   generator: 'v0.app',
   icons: {
     icon: [
