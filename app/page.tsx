@@ -1,7 +1,19 @@
 'use client';
 
 import { useState } from 'react';
-import { Menu, X, MessageCircle, Zap, Shield, Users, Dumbbell, Trophy } from 'lucide-react';
+import { Menu, X, MessageCircle, Zap, Shield, Users, Dumbbell, Trophy, MapPin } from 'lucide-react';
+
+/** India mobile; used for tel:, WhatsApp (wa.me), and display */
+const PHONE_LOCAL = '9999876004';
+const PHONE_E164 = `91${PHONE_LOCAL}`;
+const PHONE_DISPLAY = `+91 ${PHONE_LOCAL.slice(0, 5)} ${PHONE_LOCAL.slice(5)}`;
+const TEL_HREF = `tel:+${PHONE_E164}`;
+const WHATSAPP_URL = `https://wa.me/${PHONE_E164}`;
+
+const ADDRESS_LINE1 = 'Basement, B-9, B Block, Sector 50';
+const ADDRESS_LINE2 = 'Noida, Uttar Pradesh 201301';
+
+const GOOGLE_MAPS_URL = 'https://maps.app.goo.gl/GQ14pC1HDb43vteU6';
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -87,7 +99,9 @@ export default function Home() {
               Book Free Trial
             </button>
             <a 
-              href="https://wa.me/918800000000" 
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition transform hover:scale-105 flex items-center justify-center gap-2"
             >
               <MessageCircle size={20} />
@@ -260,7 +274,7 @@ export default function Home() {
 
       {/* Contact Section */}
       <section id="contact" className="py-20 px-4 bg-black">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-black mb-16 text-center">
             Get In <span className="text-red-500">Touch</span>
           </h2>
@@ -268,20 +282,49 @@ export default function Home() {
             <div className="bg-gray-900/40 rounded-xl p-8 text-center border border-red-900/30">
               <div className="text-red-500 text-4xl mb-4">📍</div>
               <h3 className="font-bold text-lg mb-2">Location</h3>
-              <p className="text-gray-400">Noida, UP, India</p>
+              <p className="text-gray-400 leading-relaxed">
+                {ADDRESS_LINE1}
+                <br />
+                {ADDRESS_LINE2}
+              </p>
             </div>
             <div className="bg-gray-900/40 rounded-xl p-8 text-center border border-red-900/30">
               <div className="text-red-500 text-4xl mb-4">📱</div>
               <h3 className="font-bold text-lg mb-2">Phone</h3>
-              <p className="text-gray-400">+91 88000 00000</p>
+              <a
+                href={TEL_HREF}
+                className="text-gray-400 hover:text-red-500 transition font-medium"
+              >
+                {PHONE_DISPLAY}
+              </a>
             </div>
             <div className="bg-gray-900/40 rounded-xl p-8 text-center border border-red-900/30">
-              <a href="https://wa.me/918800000000" className="block">
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
                 <div className="text-green-500 text-4xl mb-4">💬</div>
                 <h3 className="font-bold text-lg mb-2">WhatsApp</h3>
                 <p className="text-gray-400 hover:text-green-500 transition">Message us directly</p>
               </a>
             </div>
+          </div>
+
+          <div className="mt-12 flex flex-col items-center text-center">
+            <h3 className="text-2xl font-bold mb-6">
+              Find us on the <span className="text-red-500">map</span>
+            </h3>
+            <a
+              href={GOOGLE_MAPS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition transform hover:scale-105"
+            >
+              <MapPin size={22} className="shrink-0" aria-hidden />
+              Show on Google Maps
+            </a>
           </div>
         </div>
       </section>
