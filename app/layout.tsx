@@ -11,7 +11,21 @@ export const metadata: Metadata = {
   description: 'Learn MMA, Boxing, Kickboxing, BJJ, and Muay Thai at Evolution Combat Studio in Noida. Professional coaching, beginner-friendly classes, and real fight training.',
   generator: 'v0.app',
   icons: {
-    icon: [{ url: '/icon.svg', type: 'image/svg+xml' }],
+    icon: [
+      {
+        url: '/icon-light-32x32.png',
+        media: '(prefers-color-scheme: light)',
+      },
+      {
+        url: '/icon-dark-32x32.png',
+        media: '(prefers-color-scheme: dark)',
+      },
+      {
+        url: '/icon.svg',
+        type: 'image/svg+xml',
+      },
+    ],
+    apple: '/apple-icon.png',
   },
 }
 
